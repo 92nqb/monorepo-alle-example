@@ -38,3 +38,4 @@ jspm_packages
 
 _test
 /packages/node_modules/*/lib
+/packages/node_modules/*/*.css
