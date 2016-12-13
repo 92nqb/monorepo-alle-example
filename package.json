@@ -1,0 +1,20 @@
+{
+  "name": "monorepo-alle-example",
+  "version": "1.0.0",
+  "description": "alle-example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nquicenob/monorepo-alle-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nquicenob/monorepo-alle-example/issues"
+  },
+  "homepage": "https://github.com/nquicenob/monorepo-alle-example#readme"
+}
