@@ -2,19 +2,33 @@
   "name": "monorepo-alle-example",
   "version": "1.0.0",
   "description": "alle-example",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf ./packages/node_modules/*/lib",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nquicenob/monorepo-alle-example.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue",
+    "monorepo",
+    "alle"
+  ],
+  "author": "Nicolas Quiceno <nquicenob@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nquicenob/monorepo-alle-example/issues"
   },
-  "homepage": "https://github.com/nquicenob/monorepo-alle-example#readme"
+  "homepage": "https://github.com/nquicenob/monorepo-alle-example#readme",
+  "dependencies": {
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "rimraf": "^2.5.4",
+    "rollup": "^0.36.3",
+    "rollup-plugin-buble": "^0.14.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-vue": "^2.2.6"
+  }
 }
