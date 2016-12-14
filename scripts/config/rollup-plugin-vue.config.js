@@ -1,7 +1,13 @@
-module.exports =  {
+
+module.exports =  cssPath => ({
   compileTemplate: true,
-  css: './packages/node_modules/header/styles.css'
-};
+  css: cssPath,
+});
+
+// module.exports =  {
+//   compileTemplate: true,
+//   css: 'packages/node_modules/header/styles.css',
+// };
 
 // import each from 'lodash/each';
 // import path from 'path';
