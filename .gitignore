@@ -36,6 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# app temp files
 _test
 /packages/node_modules/*/lib
 /packages/node_modules/*/*.css
+/dist
