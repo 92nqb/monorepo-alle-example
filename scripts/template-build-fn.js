@@ -1,11 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const minimist = require('minimist');
 const handlebars = require('handlebars');
-
-const buildModule = require('./build-module');
-
-const { module : moduleName } = minimist(process.argv.slice(2));
 
 const FILE_JS = 'bundle.js';
 const FILE_HTML = 'index.html';
@@ -26,18 +21,18 @@ function writeFile({ pathToDist, fileContent }) {
 function readModuleConfigAndBuildPath(modulePath) {
   console.log(`read ${PACKAGE_JSON} in ${modulePath}`);
   const {
-    'jsnext:main': rawFile,
+    'jsnext:main': entry,
   } = require(path.resolve(modulePath, PACKAGE_JSON));
-  return path.resolve(modulePath, rawFile);
+  return path.resolve(modulePath, entry);
 };
 
 // {{ appPath }}
 const jsTemplate = handlebars.compile(
-  getTemplate(path.resolve(__dirname, 'server.fixtures', FILE_JS))
+  getTemplate(path.resolve(__dirname, 'templates', FILE_JS))
 );
 // {{ moduleName }}
 const htmlTemplate = handlebars.compile(
-  getTemplate(path.resolve(__dirname, 'server.fixtures', FILE_HTML))
+  getTemplate(path.resolve(__dirname, 'templates', FILE_HTML))
 );
 
 function writeTemplates({ appPath, moduleName }) {
@@ -53,29 +48,16 @@ function writeTemplates({ appPath, moduleName }) {
     pathToDist: pathToDistHtmlFile,
     fileContent: htmlFile
   });
-  return pathToDistJsFile;
+  return {
+    bundleJSPath: pathToDistJsFile,
+  };
 }
 
-[
-  writeTemplates,
-  rawFile => buildModule({
-    target: path.resolve(distPath, '_bundle.js'),
-    rawFile,
-    styles: path.resolve(distPath, 'styles.css'),
-  })
-].reduce((prev, fn) => fn(prev), {
-  appPath: readModuleConfigAndBuildPath(path.resolve(rootPath, moduleName)),
-  moduleName,
-});
+function run(moduleName) {
+  return writeTemplates({
+    appPath: readModuleConfigAndBuildPath(path.resolve(rootPath, moduleName)),
+    moduleName,
+  });
+}
 
-
-// writeTemplates({ appPath: 'jia', moduleName: 'jia' })
-//
-// buildModule({
-//   target,
-//   rawFile,
-//   styles,
-//   plugins
-// });
-
-// function
+module.exports = run;

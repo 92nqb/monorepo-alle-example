@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "alle-example",
   "scripts": {
-    "modules:clean": "rimraf ./packages/node_modules/*/lib && rimraf ./packages/node_modules/*/*.css",
-    "modules:build": "npm run modules:clean && node scripts/build",
-    "server:clean": "rimraf ./dist && mkdir ./dist || true",
-    "server": "npm run server:clean && node scripts/server --module=$MODULE_NAME"
+    "dev:clean": "rimraf ./dist && mkdir ./dist || true",
+    "dev:build": "cross-env NODE_ENV=development rollup -w --config ./scripts/config/rollup.config.dev.js",
+    "dev:template": "node scripts/template-build --module=$MODULE_NAME",
+    "start": "npm run dev:clean && npm run dev:template && npm run dev:build"
   },
   "repository": {
     "type": "git",
@@ -32,10 +32,15 @@
     "minimist": "^1.2.0",
     "rimraf": "^2.5.4",
     "rollup": "^0.36.3",
+    "rollup-plugin-alias": "^1.2.0",
     "rollup-plugin-buble": "^0.14.0",
     "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-livereload": "^0.4.0",
+    "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-serve": "^0.1.0",
-    "rollup-plugin-vue": "2.2.13"
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-vue": "2.2.13",
+    "uglify-js": "^2.7.5"
   }
 }
