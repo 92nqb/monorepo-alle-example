@@ -2,6 +2,8 @@
 
 > Example of monorepo in "alle" model
 
+In this example we have [vue](https://github.com/vuejs/vue) components and an application that uses these components, the build is made with [rollup](https://github.com/rollup/rollup)
+
 ## Reference
 
 <!-- TODO: AÑADIR ENTRADA DEL BLOG -->
