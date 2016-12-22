@@ -8,7 +8,8 @@
     "dev:build": "cross-env NODE_ENV=development rollup -w --config ./scripts/config/rollup.config.dev.js",
     "start": "npm run dev:clean && npm run dev:template && npm run dev:build",
     "modules:clean": "rimraf ./packages/node_modules/*/lib && rimraf ./packages/node_modules/*/*.css",
-    "modules:build": "node ./scripts/modules-build.js"
+    "modules:cjs": "node ./scripts/modules-build.js",
+    "modules:build": "npm run modules:clean && npm run modules:cjs"
   },
   "repository": {
     "type": "git",
