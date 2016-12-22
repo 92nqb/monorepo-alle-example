@@ -6,7 +6,7 @@ In this example we have [vue](https://github.com/vuejs/vue) components and an ap
 
 ## Reference
 
-This example has been built by this [blog post](http://nquicenob.github.io/2016/12/22/monorepos-javascript.html)
+This example has been constructed as an example of this post [blog post](http://nquicenob.github.io/2016/12/22/monorepos-javascript.html)
 
 ## scripts
 
