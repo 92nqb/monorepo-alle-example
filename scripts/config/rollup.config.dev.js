@@ -6,13 +6,18 @@ import commonjs from 'rollup-plugin-commonjs'
 import nodeGlobals from 'rollup-plugin-node-globals'
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
+import css from 'rollup-plugin-css-only'
+
 
 const plugins = [
   alias({
     vue$: './dist/vue.common.js'
   }),
+  css({
+    output: './dist/styles.css',
+  }),
   vue({
-    css: './dist/styles.css',
+    css: './dist/styles-components.css',
     compileTemplate: true,
   }),
   buble({}),
