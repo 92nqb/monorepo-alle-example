@@ -6,7 +6,9 @@
     "dev:clean": "rimraf ./dist && mkdir ./dist || true",
     "dev:template": "node scripts/template-build --module=$MODULE_NAME",
     "dev:build": "cross-env NODE_ENV=development rollup -w --config ./scripts/config/rollup.config.dev.js",
-    "start": "npm run dev:clean && npm run dev:template && npm run dev:build"
+    "start": "npm run dev:clean && npm run dev:template && npm run dev:build",
+    "modules:clean": "rimraf ./packages/node_modules/*/lib && rimraf ./packages/node_modules/*/*.css",
+    "modules:build": "node ./scripts/modules-build.js"
   },
   "repository": {
     "type": "git",
