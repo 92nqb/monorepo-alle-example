@@ -6,7 +6,7 @@ In this example we have [vue](https://github.com/vuejs/vue) components and an ap
 
 ## Reference
 
-<!-- TODO: AÑADIR ENTRADA DEL BLOG -->
+This example has been built by this [blog post](http://nquicenob.github.io/2016/12/22/monorepos-javascript.html)
 
 ## scripts
 
@@ -29,11 +29,22 @@ $ npm run start
 
 ### Build modules
 
-<!-- TODO: write this -->
+```bash
+$ npm run modules:build
+```
 
 ### Publish modules
 
-<!-- TODO: write this -->
+1. execute:
+
+```bash
+$ npm run modules:build
+```
+2. Move to module folder and execute:
+
+```bash
+npm run publish
+```
 
 # License
 
